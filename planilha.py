@@ -11,8 +11,11 @@ file_path    = r"C:\Users\lissa.oliveira\Documents\devDir\excel-table-example\pl
 
 app = Application().start(r'{} "{}"'.format(program_path, file_path))
 
-screen = app.window(title='planilha_teste - Excel')
+screen = app.window(title='planilha_teste')
 print(screen)
+
+#read that https://jpereiran.github.io/articles/2019/06/14/Excel-automation-with-pywin32.html
+
 # wb = xlrd.open_workbook(file_path) 
 # sheet = wb.sheet_by_index(0) 
   
