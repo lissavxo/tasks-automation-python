@@ -11,8 +11,12 @@ file_path    = r"C:\Users\lissa.oliveira\Documents\devDir\excel-table-example\pl
 
 app = Application().start(r'{} "{}"'.format(program_path, file_path))
 
-table = app.window(title="‪planilha-teste‬  -  Excel")
-table.print_control_identifiers()
+stylesheet = app.window(title_re="‪planilha-teste‬  -  Excel")
+# stylesheet.print_control_identifiers()
+
+
+app.stylesheet.print_control_identifiers()
+# table.print_control_identifiers()
 
 
 # screen.pywinauto.mouse.click(button='left', coords=(2979,265))
