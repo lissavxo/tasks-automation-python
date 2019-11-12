@@ -1,6 +1,6 @@
 import pywinauto
 from pywinauto.application import Application
-# import xlrd 
+import xlrd 
 
 
 print("start")
@@ -9,13 +9,13 @@ print("start")
 program_path = r"C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE"
 file_path    = r"C:\Users\lissa.oliveira\Documents\devDir\excel-table-example\planilha-teste.xlsx"
 
-app = Application().start(r'{} "{}"'.format(program_path, file_path))
+app = Application(backend="uia").start(r'{} "{}"'.format(program_path, file_path))
 
-stylesheet = app.window(title_re="‪planilha-teste‬  -  Excel")
-# stylesheet.print_control_identifiers()
+stylesheet =  pywinauto.timings.wait_until_passes(5,0.5, lambda: Application.connect(title_re="planilha-teste - Excel"))
+print(stylesheet)
 
 
-app.stylesheet.print_control_identifiers()
+# app.stylesheet.print_control_identifiers()
 # table.print_control_identifiers()
 
 
@@ -27,13 +27,16 @@ app.stylesheet.print_control_identifiers()
 
 # #read that https://jpereiran.github.io/articles/2019/06/14/Excel-automation-with-pywin32.html
 
-# # wb = xlrd.open_workbook(file_path) 
-# # sheet = wb.sheet_by_index(0) 
+# wb = xlrd.open_workbook(file_path) 
+# sheet = wb.sheet_by_index(0) 
   
-# # # For row 0 and column 0 
-# # sheet.cell_value(0, 0) 
+# # For row 0 and column 0 
+# sheet.cell_value(0, 0) 
   
-# # for i in range(sheet.ncols): 
-# #     print(type(sheet.cell_value(0, i))) 
+# for i in range(sheet.ncols): 
+#     print(type(sheet.cell_value(0, i))) 
+
+
+
 
 
