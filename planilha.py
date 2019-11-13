@@ -19,14 +19,29 @@ interface_dialog = main_dialog.window(best_match="planilha-teste",class_name="XL
 
 
 print("be prepared")
-time.sleep(3)
-print("be prepared")
-time.sleep(2)
+
 
 #interface_dialog.Pane6.Toolbar.print_control_identifiers()
 
 #caminho para botao guia de arquivo
 ##interface_dialog.Pane6.Toolbar.Button8.click()
+
+
+
+# escrevendo nas celulas 
+
+
+grid_dialog = interface_dialog.TabControl2
+
+#grid_dialog.print_control_identifiers()
+
+#interface_dialog.TabControl2.print_control_identifiers()
+
+grid_dialog.DataItem22.type_keys(r"it")
+grid_dialog.DataItem22.type_keys("{ENTER}")
+grid_dialog.DataItem23.type_keys(r"works")
+grid_dialog.DataItem23.type_keys("{ENTER}")
+
 
 
 
