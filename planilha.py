@@ -1,6 +1,8 @@
 import pywinauto
 from pywinauto.application import Application
-import xlrd 
+from pywinauto import Desktop
+import time
+
 
 
 print("start")
@@ -9,34 +11,22 @@ print("start")
 program_path = r"C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE"
 file_path    = r"C:\Users\lissa.oliveira\Documents\devDir\excel-table-example\planilha-teste.xlsx"
 
-app = Application(backend="uia").start(r'{} "{}"'.format(program_path, file_path))
+app = Application(backend="uia").start(r'%s "%s"'%(program_path, file_path))
 
-stylesheet =  pywinauto.timings.wait_until_passes(5,0.5, lambda: Application.connect(title_re="planilha-teste - Excel"))
-print(stylesheet)
+main_dialog =  pywinauto.timings.wait_until_passes(30,0.5, lambda: app.connect(best_match="planilha-teste"))
 
-
-# app.stylesheet.print_control_identifiers()
-# table.print_control_identifiers()
+interface_dialog = main_dialog.window(best_match="planilha-teste",class_name="XLMAIN")
 
 
-# screen.pywinauto.mouse.click(button='left', coords=(2979,265))
-# # screen.pywinauto.mouse.scroll(coords=(3045,370), wheel_dist=1)
+print("be prepared")
+time.sleep(3)
+print("be prepared")
+time.sleep(2)
 
-# # screen.Pane.wait
-# # print(screen)
+#interface_dialog.Pane6.Toolbar.print_control_identifiers()
 
-# #read that https://jpereiran.github.io/articles/2019/06/14/Excel-automation-with-pywin32.html
-
-# wb = xlrd.open_workbook(file_path) 
-# sheet = wb.sheet_by_index(0) 
-  
-# # For row 0 and column 0 
-# sheet.cell_value(0, 0) 
-  
-# for i in range(sheet.ncols): 
-#     print(type(sheet.cell_value(0, i))) 
-
-
+#caminho para botao guia de arquivo
+##interface_dialog.Pane6.Toolbar.Button8.click()
 
 
 
